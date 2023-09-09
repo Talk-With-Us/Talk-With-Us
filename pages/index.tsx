@@ -36,6 +36,10 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    handleFileUpload();
+  }, []);
+
   const handleQuerySubmit = async () => {
     if (query.trim() === "") {
       return;
@@ -117,14 +121,14 @@ export default function Home() {
     <>
       <Navbar />
       <Head>
-        <title>Chat-with-PDF-LlamaIndex</title>
+        <title>Chat-with-Me-LlamaIndex</title>
       </Head>
       <main className="mx-2 flex h-full flex-col lg:mx-56">
         {/* PDF UPLOAD BUTTON */}
 
-        <div className="my-4 flex items-center">
+        {/* <div className="my-4 flex items-center">
           <Button onClick={handleFileUpload}></Button>
-        </div>
+        </div> */}
 
         {/* Chat History */}
         <div
