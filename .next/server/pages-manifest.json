@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/api/retrieveandquery": "pages/api/retrieveandquery.js",
   "/": "pages/index.js",
-  "/api/splitandembed": "pages/api/splitandembed.js",
-  "/api/retrieveandquery": "pages/api/retrieveandquery.js"
+  "/api/splitandembed": "pages/api/splitandembed.js"
 }

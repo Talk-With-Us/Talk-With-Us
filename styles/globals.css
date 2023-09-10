@@ -52,3 +52,35 @@ body,
   height: 100%;
   width: 100%;
 }
+
+@keyframes glitter {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.animate-glitter {
+  animation: glitter 2s linear infinite;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+}
+
+/* Add these classes to your Tailwind CSS configuration */
+.scale-0 {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.scale-100 {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.transition-transform {
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
