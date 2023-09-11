@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Head from "next/head";
-import { ChangeEvent, useEffect, useId, useRef, useState } from "react";
+import { ChangeEvent,useEffect,useId,useRef,useState } from "react";
 
 export default function Home() {
   const queryId = useId();
@@ -129,40 +129,42 @@ export default function Home() {
         <title>Chat-with-Me</title>
       </Head>
       <main className="mx-2 flex h-full flex-col lg:mx-56">
-        {/* Chat History */}
-        <div className="chat-window">
-          <div
-            className="chat-history"
-            ref={chatHistoryRef}
-            style={{ maxHeight: "calc(100vh - 150px)", overflowY: "auto" }}
-          >
-            {chatHistory.map((item, index) => (
-              <ChatMessage key={index} type={item.type} text={item.text} />
-            ))}
-          </div>
+        <div className="overflow-hidden rounded-lg border border-gray-300 bg-white p-4">
+          {/* Chat History */}
+          <div className="chat-window">
+            <div
+              className="chat-history"
+              ref={chatHistoryRef}
+              style={{ maxHeight: "calc(100vh - 150px)", overflowY: "auto" }}
+            >
+              {chatHistory.map((item, index) => (
+                <ChatMessage key={index} type={item.type} text={item.text} />
+              ))}
+            </div>
 
-          {/* Query Input */}
-          <div className="my-2 space-y-2">
-            <Label htmlFor="queryId">Query:</Label>
-            <div className="flex w-full space-x-2">
-              <Input
-                className="p-2 w-full rounded-md focus:ring focus:border-cyan-500"
-                id={queryId}
-                value={query}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  setQuery(e.target.value);
-                }}
-              />
-              <Button
-                className={`border-solid border-2 border-sky-500 bg-cyan-500 shadow-lg shadow-cyan-500/50 text-white py-2 px-4 rounded-lg border-gray-90 cursor-pointer ${
-                  runningQuery ? 'animate-glitter' : ''
-                }`}
-                type="submit"
-                onClick={handleQuerySubmit}
-                disabled={!query}
-              >
-                {runningQuery ? 'Submitting...' : 'Submit'}
-              </Button>
+            {/* Query Input */}
+            <div className="my-2 space-y-2">
+              <Label htmlFor="queryId">Query:</Label>
+              <div className="flex w-full space-x-2">
+                <Input
+                  className="w-full rounded-md p-2 focus:border-cyan-500 focus:ring"
+                  id={queryId}
+                  value={query}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                    setQuery(e.target.value);
+                  }}
+                />
+                <Button
+                  className={`border-gray-90 cursor-pointer rounded-lg border-2 border-solid border-sky-500 bg-cyan-500 px-4 py-2 text-white shadow-lg shadow-cyan-500/50 ${
+                    runningQuery ? "animate-glitter" : ""
+                  }`}
+                  type="submit"
+                  onClick={handleQuerySubmit}
+                  disabled={!query}
+                >
+                  {runningQuery ? "Submitting..." : "Submit"}
+                </Button>
+              </div>
             </div>
           </div>
         </div>

@@ -1,10 +1,18 @@
 const Navbar = () => {
   return (
-    <nav className="navbar bg-slate-900 bg-opacity-100 p-4 fixed top-0 w-full z-10">
-      <div className="mx-auto flex max-w-6xl items-center justify-center">
-        <div className="text-2xl font-semibold text-white">
-          <h1>CHAT WITH ME</h1>
-        </div>
+    <nav className="navbar fixed flex w-screen bg-slate-900 bg-opacity-100 p-4">
+      <div className="mr-auto flex flex-1 justify-center">
+        <a className="mx-2 text-2xl font-semibold text-white ">Chat With Me</a>
+      </div>
+      <div className=" ml-auto flex flex-1 justify-center text-2xl font-semibold text-white">
+        <a
+          href="https://www.llamaindex.ai/"
+          target="_blank"
+          className="font-nunito mx-2 flex items-center text-lg font-bold "
+        >
+          Built with LlamaIndex
+          <img src="logo-black.svg" className="mx-2 rounded-lg" width={40} />
+        </a>
       </div>
     </nav>
   );
