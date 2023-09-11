@@ -4,14 +4,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Head from "next/head";
 import { ChangeEvent, useEffect, useId, useRef, useState } from "react";
-import {
-  Avatar,
-  ChatContainer,
-  ConversationHeader,
-  Message,
-  MessageInput,
-  MessageList,
-} from "@chatscope/chat-ui-kit-react";
 
 export default function Home() {
   const queryId = useId();
@@ -122,7 +114,7 @@ export default function Home() {
       </div>
     );    
   };
-
+  
   // To scroll to the bottom of the chat history when updated
   useEffect(() => {
     if (chatHistoryRef.current) {
@@ -134,42 +126,44 @@ export default function Home() {
     <>
       <Navbar />
       <Head>
-        <title>Chat-with-Me-LlamaIndex</title>
+        <title>Chat-with-Me</title>
       </Head>
       <main className="mx-2 flex h-full flex-col lg:mx-56">
         {/* Chat History */}
-        <div
-          className="chat-history"
-          ref={chatHistoryRef}
-          style={{ maxHeight: "calc(100vh - 150px)", overflowY: "auto" }}
-        >
-          {chatHistory.map((item, index) => (
-            <ChatMessage key={index} type={item.type} text={item.text} />
-          ))}
-        </div>
+        <div className="chat-window">
+          <div
+            className="chat-history"
+            ref={chatHistoryRef}
+            style={{ maxHeight: "calc(100vh - 150px)", overflowY: "auto" }}
+          >
+            {chatHistory.map((item, index) => (
+              <ChatMessage key={index} type={item.type} text={item.text} />
+            ))}
+          </div>
 
-        {/* Query Input */}
-        <div className="my-2 space-y-2">
-          <Label htmlFor="queryId">Query:</Label>
-          <div className="flex w-full space-x-2">
-            <Input
-              className="p-2 w-full rounded-md focus:ring focus:border-cyan-500"
-              id={queryId}
-              value={query}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setQuery(e.target.value);
-              }}
-            />
-            <Button
-              className={`border-solid border-2 border-sky-500 bg-cyan-500 shadow-lg shadow-cyan-500/50 text-white py-2 px-4 rounded-lg border-gray-90 cursor-pointer ${
-                runningQuery ? 'animate-glitter' : ''
-              }`}
-              type="submit"
-              onClick={handleQuerySubmit}
-              disabled={!query}
-            >
-              {runningQuery ? 'Submitting...' : 'Submit'}
-            </Button>
+          {/* Query Input */}
+          <div className="my-2 space-y-2">
+            <Label htmlFor="queryId">Query:</Label>
+            <div className="flex w-full space-x-2">
+              <Input
+                className="p-2 w-full rounded-md focus:ring focus:border-cyan-500"
+                id={queryId}
+                value={query}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  setQuery(e.target.value);
+                }}
+              />
+              <Button
+                className={`border-solid border-2 border-sky-500 bg-cyan-500 shadow-lg shadow-cyan-500/50 text-white py-2 px-4 rounded-lg border-gray-90 cursor-pointer ${
+                  runningQuery ? 'animate-glitter' : ''
+                }`}
+                type="submit"
+                onClick={handleQuerySubmit}
+                disabled={!query}
+              >
+                {runningQuery ? 'Submitting...' : 'Submit'}
+              </Button>
+            </div>
           </div>
         </div>
       </main>
