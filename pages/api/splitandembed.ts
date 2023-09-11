@@ -33,7 +33,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<Output>) => {
 
   const pdfReader = new PDFReader();
   const constantFilePath =
-    "/Users/samaypusarla/Desktop/Chat-With-Me/public/resume.pdf";
+    "./uploads/sample.pdf"; // Upload pdf to uploads folder and specify the path
 
   const pdfDocuments = await pdfReader.loadData(constantFilePath);
 
