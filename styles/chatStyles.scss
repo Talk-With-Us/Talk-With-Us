@@ -92,7 +92,7 @@ body {
 	right: -$chat-thread-msg-arrow-size;
 }
 
-.chat-thread :nth-child(even) {
+.chat-thread li:nth-child(even) {
 	animation: show-chat-even 0.15s 1 ease-in;
 	-moz-animation: show-chat-even 0.15s 1 ease-in;
 	-webkit-animation: show-chat-even 0.15s 1 ease-in;
@@ -222,13 +222,4 @@ body {
 	100% {
 			transform: translateX(-50%) translateZ(0) scaleY(1)
 	}
-}
-.waveWrapper {
-	overflow: hidden;
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	top: 0;
-	margin: auto;
 }
