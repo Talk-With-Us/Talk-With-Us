@@ -73,8 +73,6 @@ export default function Home() {
       }
 
       if (payload) {
-
-
         setRunningQuery(false);
         // Add server response to chat history
         setChatHistory([
@@ -118,7 +116,7 @@ export default function Home() {
           />
         )}
         <div
-          className={`message-text ml-2 flex w-full space-x-2 rounded-md p-2 chatdiv ${borderColorClass}`}
+          className={`message-text chatdiv ml-2 flex w-full space-x-2 rounded-md p-2 ${borderColorClass}`}
           style={{ whiteSpace: "pre-wrap" }}
         >
           {text}
@@ -165,6 +163,12 @@ export default function Home() {
                   value={query}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     setQuery(e.target.value);
+                  }}
+                  onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault(); // Prevent the default behavior of the Enter key (e.g., form submission)
+                      handleQuerySubmit(); // Call your query submission function
+                    }
                   }}
                 />
                 <Button
