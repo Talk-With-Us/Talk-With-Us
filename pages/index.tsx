@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Head from "next/head";
-import { ChangeEvent,useEffect,useId,useRef,useState } from "react";
+import { ChangeEvent, useEffect, useId, useRef, useState } from "react";
 
 export default function Home() {
   const queryId = useId();
@@ -73,18 +73,19 @@ export default function Home() {
       }
 
       if (payload) {
+
+
         setRunningQuery(false);
         // Add server response to chat history
         setChatHistory([
           ...chatHistory,
+
           { type: "user", text: query }, // Can later take the username
           { type: "server", text: payload.response },
         ]);
+
+        console.log("chat history", chatHistory);
       }
-      // useEffect(() => {
-      //   console.log("inside use effect");
-      //   handleQuerySubmit();
-      // }, []);
 
       // Clear input field
       setQuery("");
@@ -104,23 +105,35 @@ export default function Home() {
     const borderColorClass = "border primary";
 
     return (
-      <div className={`chat-message ${bgColorClass} my-2 rounded-md p-2 flex items-center`}>
+      <div
+        className={`chat-message ${bgColorClass} my-2 flex items-center rounded-md p-2 `}
+      >
         {type === "user" ? (
-          <Label className="w-10 h-10 p-2">You:</Label> 
+          <Label className="h-10 w-10 p-2">You:</Label>
         ) : (
-          <img className="w-10 h-10 p-2 rounded-full ring-2 ring-cyan-500 dark:ring-gray-600" src="/one.png" alt="Bordered avatar" />
+          <img
+            className="h-10 w-10 rounded-full p-2 ring-2 ring-cyan-500 dark:ring-gray-600"
+            src="/one.png"
+            alt="Bordered avatar"
+          />
         )}
-         <div className={`message-text ml-2 rounded-md p-2 flex w-full space-x-2 ${borderColorClass}`}>{text}</div>
+        <div
+          className={`message-text ml-2 flex w-full space-x-2 rounded-md p-2 chatdiv ${borderColorClass}`}
+          style={{ whiteSpace: "pre-wrap" }}
+        >
+          {text}
+        </div>
       </div>
-    );    
+    );
   };
-  
+
   // To scroll to the bottom of the chat history when updated
   useEffect(() => {
     if (chatHistoryRef.current) {
       chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
     }
   }, [chatHistory]);
+  console.log("🚀 ~ file: index.tsx:136 ~ Home ~ chatHistory:", chatHistory);
 
   return (
     <>
