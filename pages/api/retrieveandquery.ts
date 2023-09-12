@@ -10,7 +10,7 @@ import {
   serviceContextFromDefaults,
 } from "llamaindex";
 
-let ChatEngine : any;
+let ChatEngine: any;
 
 type Input = {
   query: string;
