@@ -145,7 +145,7 @@ Sample questions to get you started:
       chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
     }
   }, [chatHistory]);
-  console.log("🚀 ~ file: index.tsx:136 ~ Home ~ chatHistory:", chatHistory);
+
 
   return (
     <>

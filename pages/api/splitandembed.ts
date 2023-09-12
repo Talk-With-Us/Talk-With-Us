@@ -32,13 +32,11 @@ export default async (req: NextApiRequest, res: NextApiResponse<Output>) => {
   }
 
   const pdfReader = new PDFReader();
-  const constantFilePath =
-    "./uploads/sample.pdf"; // Upload pdf to uploads folder and specify the path
+  const constantFilePath = "./public/sample.pdf"; // Upload pdf to uploads folder and specify the path
 
   const pdfDocuments = await pdfReader.loadData(constantFilePath);
 
   const textFromPDF = pdfDocuments[0].text;
-
 
   // convert PDF to Text using LlamaIndex Modules : https://github.com/run-llama/LlamaIndexTS/blob/main/packages/core/src/readers/PDFReader.ts
 
