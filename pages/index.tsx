@@ -37,6 +37,20 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const defaultEntry: ChatMessage = {
+      type: "server", // You can set the type as "server" or "user" as needed
+      text: `Hey there! 🚀 Welcome to the Samay Pusarla's Resume discussion zone! Feel free to ask me anything about his background, achievements, or career. This website is all about diving into the details of his resume. Have a question? Fire away! 😄📚🏆
+
+Sample questions to get you started:
+
+- "Tell me about Samay's educational background."
+- "What are some key highlights from Samay Pusarla's professional career?"
+- "Can you share insights into Samay Pusarla's skills and expertise?"
+- "What's Samay's current role or project?"
+
+  Ask away, and I'll spill the beans on Samay's impressive journey! 😄📚🏆`,
+    };
+    setChatHistory([defaultEntry]);
     handleFileUpload();
   }, []);
 
@@ -149,6 +163,7 @@ Sample questions to get you started:
     }
   }, [chatHistory]);
   console.log("🚀 ~ file: index.tsx:136 ~ Home ~ chatHistory:", chatHistory);
+
 
   return (
     <>
