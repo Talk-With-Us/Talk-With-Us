@@ -37,11 +37,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    handleFileUpload();
-  }, []);
-
-  useEffect(() => {
-    const defaultEntry = {
+    const defaultEntry: ChatMessage = {
       type: "server", // You can set the type as "server" or "user" as needed
       text: `Hey there! 🚀 Welcome to the Samay Pusarla's Resume discussion zone! Feel free to ask me anything about his background, achievements, or career. This website is all about diving into the details of his resume. Have a question? Fire away! 😄📚🏆
 
@@ -55,6 +51,7 @@ Sample questions to get you started:
   Ask away, and I'll spill the beans on Samay's impressive journey! 😄📚🏆`,
     };
     setChatHistory([defaultEntry]);
+    handleFileUpload();
   }, []);
 
   const handleQuerySubmit = async () => {
@@ -148,7 +145,7 @@ Sample questions to get you started:
       chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
     }
   }, [chatHistory]);
-  console.log("🚀 ~ file: index.tsx:136 ~ Home ~ chatHistory:", chatHistory);
+
 
   return (
     <>

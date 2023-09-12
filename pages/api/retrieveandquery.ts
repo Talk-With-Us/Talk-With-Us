@@ -83,9 +83,4 @@ export default async function handler(
   console.log(response.toString());
 }
 
-//   const queryEngine = new RetrieverQueryEngine(retriever);
 
-//   const result = await queryEngine.query(query);
-
-//   res.status(200).json({ payload: { response: result.response } });
-// }

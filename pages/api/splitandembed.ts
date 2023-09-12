@@ -38,10 +38,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<Output>) => {
   const pdfDocuments = await pdfReader.loadData(constantFilePath);
 
   const textFromPDF = pdfDocuments[0].text;
-  console.log(
-    "🚀 ~ file: splitandembed.ts:56 ~ form.parse ~ textFromPDF:",
-    textFromPDF,
-  );
+
 
   // convert PDF to Text using LlamaIndex Modules : https://github.com/run-llama/LlamaIndexTS/blob/main/packages/core/src/readers/PDFReader.ts
 
