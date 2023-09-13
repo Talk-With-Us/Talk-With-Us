@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Head from "next/head";
 import { ChangeEvent, useEffect, useId, useRef, useState } from "react";
+import React from "react";
 
 export default function Home() {
   const queryId = useId();
@@ -116,10 +117,10 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
     text: string;
   }
 
-  const ChatMessage = ({ type, text }: { type: string; text: string }) => {
+  const ChatMessage = React.memo(({ type, text }: { type: string; text: string }) => {
     const bgColorClass = type === "user" ? "bg-transparent" : "bg-transparent";
     const borderColorClass = "border primary";
-
+  
     return (
       <div
         className={`chat-message ${bgColorClass} my-2 flex items-center rounded-md p-2 `}
@@ -141,7 +142,7 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
         </div>
       </div>
     );
-  };
+  });  
 
   // To scroll to the bottom of the chat history when updated
   useEffect(() => {
