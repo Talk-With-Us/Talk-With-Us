@@ -39,16 +39,20 @@ export default function Home() {
   useEffect(() => {
     const defaultEntry: ChatMessage = {
       type: "server", // You can set the type as "server" or "user" as needed
-      text: `Hey there! 🚀 Welcome to the Samay Pusarla's Resume discussion zone! Feel free to ask me anything about his background, achievements, or career. This website is all about diving into the details of his resume. Have a question? Fire away! 😄📚🏆
+      text: `
+Welcome to Pavan Nallagoni's Resume Chat Zone! 🚀 This is your gateway to uncovering the fascinating details of Pavan's background, achievements, and career journey. Feel free to inquire about anything you'd like to know – whether it's about Pavan's education, career highlights, skills, or ongoing projects.🎓💼
 
-Sample questions to get you started:
+Got questions? Just drop them here, and we'll uncover the fascinating details of Pavan's journey! 🔥📚🏆
 
-- "Tell me about Samay's educational background."
-- "What are some key highlights from Samay Pusarla's professional career?"
-- "Can you share insights into Samay Pusarla's skills and expertise?"
-- "What's Samay's current role or project?"
+🔍 Need a starting point? How about these:
 
-  Ask away, and I'll spill the beans on Samay's impressive journey! 😄📚🏆`,
+☞  Tell me about Pavan's educational journey.
+☞  Share some standout moments from Pavan's career.
+☞  What skills and expertise does Pavan bring to the table?
+☞  What's keeping Pavan busy in his current role or project?
+
+Feel free to ask away, and let's dive into the captivating story of Pavan Nallagoni! 😄📚🏆
+      `,
     };
     setChatHistory([defaultEntry]);
     handleFileUpload();

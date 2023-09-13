@@ -8,6 +8,7 @@ import {
   serviceContextFromDefaults,
 } from "llamaindex";
 import type { NextApiRequest, NextApiResponse } from "next";
+import path from 'path';
 
 type Output = {
   error?: string;
@@ -31,8 +32,8 @@ export default async (req: NextApiRequest, res: NextApiResponse<Output>) => {
     return;
   }
 
-  const pdfReader = new PDFReader();
-  const constantFilePath = "./public/sample.pdf"; // Upload pdf to uploads folder and specify the path
+  const pdfReader = new PDFReader(); 
+  const constantFilePath = path.join(process.cwd(), 'public', 'sample.pdf'); // Upload pdf to uploads folder and specify the path
 
   const pdfDocuments = await pdfReader.loadData(constantFilePath);
 
