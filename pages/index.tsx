@@ -185,7 +185,7 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
                   onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
                     if (e.key === "Enter") {
                       e.preventDefault(); // Prevent the default behavior of the Enter key (e.g., form submission)
-                      handleQuerySubmit(); // Call your query submission function
+                      handleQuerySubmit(); // Call your query submission function                      
                     }
                   }}
                 />
