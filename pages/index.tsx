@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Head from "next/head";
-import { ChangeEvent, useEffect, useId, useRef, useState } from "react";
-import React from "react";
+import React, { ChangeEvent, useEffect, useId, useRef, useState } from "react";
 
 export default function Home() {
   const queryId = useId();
@@ -117,32 +116,38 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
     text: string;
   }
 
-  const ChatMessage = React.memo(({ type, text }: { type: string; text: string }) => {
-    const bgColorClass = type === "user" ? "bg-transparent" : "bg-transparent";
-    const borderColorClass = "border primary";
-  
-    return (
-      <div
-        className={`chat-message ${bgColorClass} my-2 flex items-center rounded-md p-2 `}
-      >
-        {type === "user" ? (
-          <Label className="h-10 w-10 p-2">You:</Label>
-        ) : (
-          <img
-            className="h-10 w-10 rounded-full p-2 ring-2 ring-cyan-500 dark:ring-gray-600"
-            src="/one.png"
-            alt="Bordered avatar"
-          />
-        )}
+  const ChatMessage = React.memo(
+    ({ type, text }: { type: string; text: string }) => {
+      const bgColorClass =
+        type === "user" ? "bg-transparent" : "bg-transparent";
+      const borderColorClass = "border primary";
+
+      return (
         <div
-          className={`message-text chatdiv ml-2 flex w-full space-x-2 rounded-md p-2 ${borderColorClass}`}
-          style={{ whiteSpace: "pre-wrap" }}
+          className={`chat-message ${bgColorClass}  my-2 flex items-center rounded-md p-2`}
         >
-          {text}
+          {type === "user" ? (
+            <Label className="h-12 w-12 p-5">You:</Label>
+          ) : (
+            <img
+              className="h-12 w-12 rounded-full p-0 ring-2 ring-cyan-500 dark:ring-gray-600 "
+              src="/one.png"
+              alt="Bordered avatar"
+            />
+          )}
+          <div
+            className={`message-text chatdiv ml-2 flex w-full space-x-2  `}
+            style={{
+              whiteSpace: "pre-wrap",
+              padding: "0 20px 0 20px",
+            }}
+          >
+            {text}
+          </div>
         </div>
-      </div>
-    );
-  });  
+      );
+    },
+  );
 
   // To scroll to the bottom of the chat history when updated
   useEffect(() => {
@@ -150,7 +155,6 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
       chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
     }
   }, [chatHistory]);
-
 
   return (
     <>
@@ -163,7 +167,7 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
           {/* Chat History */}
           <div className="chat-window">
             <div
-              className="chat-history"
+              className="chat-history "
               ref={chatHistoryRef}
               style={{ maxHeight: "calc(100vh - 150px)", overflowY: "auto" }}
             >
@@ -174,10 +178,11 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
 
             {/* Query Input */}
             <div className="my-2 space-y-2">
-              <Label htmlFor="queryId">Query:</Label>
+              {/* <Label htmlFor="queryId">Questions?</Label> */}
               <div className="flex w-full space-x-2">
                 <Input
                   className="w-full rounded-md p-2 focus:border-cyan-500 focus:ring"
+                  placeholder="Write your questions!"
                   id={queryId}
                   value={query}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -186,7 +191,7 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
                   onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
                     if (e.key === "Enter") {
                       e.preventDefault(); // Prevent the default behavior of the Enter key (e.g., form submission)
-                      handleQuerySubmit(); // Call your query submission function                      
+                      handleQuerySubmit(); // Call your query submission function
                     }
                   }}
                 />
@@ -198,7 +203,17 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
                   onClick={handleQuerySubmit}
                   disabled={!query}
                 >
-                  {runningQuery ? "Submitting..." : "Submit"}
+                  <span className="font-bold">
+                    {runningQuery ? "Sending..." : "Send"}
+                  </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="ml-2 h-6 w-6 rotate-90 transform"
+                  >
+                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
+                  </svg>
                 </Button>
               </div>
             </div>
