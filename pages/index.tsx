@@ -40,18 +40,18 @@ export default function Home() {
     const defaultEntry: ChatMessage = {
       type: "server", // You can set the type as "server" or "user" as needed
       text: `
-Welcome to Pavan Nallagoni's Resume Chat Zone! 🚀 This is your gateway to uncovering the fascinating details of Pavan's background, achievements, and career journey. Feel free to inquire about anything you'd like to know – whether it's about Pavan's education, career highlights, skills, or ongoing projects.🎓💼
 
-Got questions? Just drop them here, and we'll uncover the fascinating details of Pavan's journey! 🔥📚🏆
+Welcome to Samay Pusarla's Resume Chat Zone! 🚀 Discover Samay's background, achievements, and career. Ask about education, career highlights, skills, or projects. 
+🎓💼 Questions? Drop them here for details! 🔥📚🏆
 
 🔍 Need a starting point? How about these:
 
-☞  Tell me about Pavan's educational journey.
-☞  Share some standout moments from Pavan's career.
-☞  What skills and expertise does Pavan bring to the table?
-☞  What's keeping Pavan busy in his current role or project?
+☞  Tell me about Samay's educational journey.
+☞  Share some standout moments from Samay's career.
+☞  What skills and expertise does Samay bring to the table?
+☞  What's keeping Samay busy in his current role or project?
 
-Feel free to ask away, and let's dive into the captivating story of Pavan Nallagoni! 😄📚🏆
+Feel free to ask away, and let's dive into the captivating story of Samay Pusarla! 😄📚🏆
       `,
     };
     setChatHistory([defaultEntry]);
