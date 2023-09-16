@@ -10,7 +10,7 @@ const Navbar = () => {
           target="_blank"
           className="font-nunito mx-2 flex items-center text-lg font-bold "
         >
-          Built with LlamaIndex
+          <span className="hidden sm:inline">Built with LlamaIndex</span>
           <img src="logo-black.svg" className="mx-2 rounded-lg" width={40} />
         </a>
       </div>

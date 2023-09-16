@@ -99,6 +99,10 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
           { type: "user", text: query }, // Can later take the username
           { type: "server", text: payload.response },
         ]);
+        
+        if (chatHistoryRef.current) {
+          chatHistoryRef.current.scrollTop = 0;
+        }
 
         console.log("chat history", chatHistory);
       }
@@ -119,24 +123,23 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
   const ChatMessage = React.memo(
     ({ type, text }: { type: string; text: string }) => {
       const bgColorClass =
-        type === "user" ? "bg-transparent" : "bg-transparent";
-      const borderColorClass = "border primary";
-
+        type === "user" ? "bg-transparent" : "bg-transparent";  
+  
       return (
         <div
-          className={`chat-message ${bgColorClass}  my-2 flex items-center rounded-md p-2`}
+          className={`chat-message ${bgColorClass} my-2 flex items-center rounded-md p-2`}
         >
           {type === "user" ? (
-            <Label className="h-12 w-12 p-5">You:</Label>
+            <Label className="h-12 w-12 p-4 md:w-10">You:</Label>
           ) : (
             <img
-              className="h-12 w-12 rounded-full p-0 ring-2 ring-cyan-500 dark:ring-gray-600 "
+              className="h-8 w-8 md:h-10 md:w-10 rounded-full p-0 ring-2 ring-cyan-500 dark:ring-gray-600"
               src="/one.png"
               alt="Bordered avatar"
             />
           )}
           <div
-            className={`message-text chatdiv ml-2 flex w-full space-x-2  `}
+            className={`message-text chatdiv ml-2 flex w-full space-x-2`}
             style={{
               whiteSpace: "pre-wrap",
               padding: "0 20px 0 20px",
@@ -147,7 +150,7 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
         </div>
       );
     },
-  );
+  );  
 
   // To scroll to the bottom of the chat history when updated
   useEffect(() => {
@@ -167,10 +170,12 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
           {/* Chat History */}
           <div className="chat-window">
             <div
-              className="chat-history "
+              className="chat-history"
               ref={chatHistoryRef}
               style={{ maxHeight: "calc(100vh - 150px)", overflowY: "auto" }}
             >
+              {/* placeholder div to push the content down initially */}
+              <div style={{ height: "100px" }}></div>
               {chatHistory.map((item, index) => (
                 <ChatMessage key={index} type={item.type} text={item.text} />
               ))}
@@ -181,7 +186,7 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
               {/* <Label htmlFor="queryId">Questions?</Label> */}
               <div className="flex w-full space-x-2">
                 <Input
-                  className="w-full rounded-md p-2 focus:border-cyan-500 focus:ring"
+                  className="w-full no-zoom rounded-md p-2 focus:border-cyan-500 focus:ring"
                   placeholder="Write your questions!"
                   id={queryId}
                   value={query}
