@@ -67,3 +67,10 @@ body,
   background: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
   background-size: 20px 20px;
 }
+
+.no-zoom {
+  font-size: 16px; /* Set your desired font size */
+  max-height: 100px; /* Adjust the max-height as needed */
+  max-width: 100%; /* Ensure the input doesn't exceed the screen width */
+  overflow: auto; /* Allow scrolling if the content exceeds the input's dimensions */
+}
