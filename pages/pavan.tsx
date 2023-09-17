@@ -77,12 +77,10 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
         body: JSON.stringify({
           query,
           nodesWithEmbedding,
+          context: "pavan",
         }),
       });
-      console.log(
-        "🚀 ~ file: pavan.tsx:80 ~ handleQuerySubmit ~ nodesWithEmbedding:",
-        nodesWithEmbedding,
-      );
+
       if (!result.ok) {
         throw new Error(`HTTP error! Status: ${result.status}`);
       }

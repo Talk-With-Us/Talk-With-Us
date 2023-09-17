@@ -76,15 +76,10 @@ Feel free to ask away, and let's dive into the captivating story of Samay Pusarl
         },
         body: JSON.stringify({
           query,
-          nodesWithEmbedding,
-          
+          nodesWithEmbedding, 
+          context: "samay",         
         }),
       });
-
-      console.log(
-        "🚀 ~ file: samay.tsx:80 ~ handleQuerySubmit ~ nodesWithEmbedding:",
-        nodesWithEmbedding,
-      );
 
       if (!result.ok) {
         throw new Error(`HTTP error! Status: ${result.status}`);
