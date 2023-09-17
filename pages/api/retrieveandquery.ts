@@ -11,6 +11,7 @@ import {
 } from "llamaindex";
 
 let ChatEngine: any;
+let currentContext: string | undefined;
 
 type Input = {
   query: string;
@@ -19,6 +20,8 @@ type Input = {
     text: string;
     embedding: number[];
   }[];
+  
+  context: string;
 };
 
 type Output = {
@@ -37,7 +40,7 @@ export default async function handler(
     return;
   }
 
-  const { query, nodesWithEmbedding }: Input = req.body;
+  const { query, nodesWithEmbedding, context }: Input = req.body;
 
   const embeddingResults = nodesWithEmbedding.map((config) => {
     return {
@@ -45,6 +48,8 @@ export default async function handler(
       embedding: config.embedding,
     };
   });
+  console.log("hello:",embeddingResults );
+
   const indexDict = new IndexDict();
   for (const { node } of embeddingResults) {
     indexDict.addNode(node);
@@ -70,8 +75,9 @@ export default async function handler(
   const retriever = index.asRetriever();
   retriever.similarityTopK = 2;
 
-  if (ChatEngine == null) {
+  if (ChatEngine === undefined || currentContext !== context) {
     ChatEngine = new ContextChatEngine({ retriever });
+    currentContext = context;
   }
 
   const response = await ChatEngine.chat(query);

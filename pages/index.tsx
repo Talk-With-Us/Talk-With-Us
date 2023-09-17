@@ -1,46 +1,42 @@
-import Navbar from "@/components/Navbar";
-import BigRedButton from "@/components/ui/BigRedButton";
-import RoundPort from "@/components/ui/RoundPort";
 import Head from "next/head";
+import Link from 'next/link'
 
 export default function Home() {
 
   return (
-    <>
-      <Navbar />
+    <>   
       <Head>
         <title>Talk-with-us</title>
-      </Head>
-      <RoundPort>
+      </Head>      
         <div className="flex h-full w-full flex-col justify-center">
           <div className="my-8">
-            <h1 className="text-center text-2xl font-bold text-panda lg:text-3xl">
-              Welcome to Talk With Us
+            <h1 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-panda">
+              <svg>
+                <text x="50%" y="50%" dy=".35em">
+                  Talk With Us
+                </text>
+              </svg>
             </h1>
           </div>
           <div className="flex flex-col justify-center max-lg:items-center lg:flex-row">
-            {/* <Image
-              src="/redpanda.png"
-              width={221}
-              height={232}
-              alt="red panda sitting"
-            /> */}
-            <div className="m-4 flex flex-col justify-between">
-              <BigRedButton>
-                <a href="samay">
-                  &nbsp;&nbsp;&nbsp;Talk with Samay&nbsp;&nbsp; &nbsp;{" "}
-                </a>
-              </BigRedButton>
-              <div className="h-4"></div>
-              <BigRedButton>
-                <a href="pavan">
-                  &nbsp;&nbsp;&nbsp;Talk with Pavan&nbsp;&nbsp; &nbsp;{" "}
-                </a>
-              </BigRedButton>
+            <div className="m-4 flex flex-col justify-between lg:flex-row">
+              <Link href="/samay">
+                <button className="button button2 rounded-lg p-4 mt-2 lg:mt-0 lg:mr-6">
+                  <span style={{ width: "150px", display: "inline-block" }}>
+                    Talk with Samay
+                  </span>
+                </button>
+              </Link>
+              <Link href="/pavan">
+                <button className="button button2 rounded-lg p-4 mt-2 lg:mt-0">
+                  <span style={{ width: "150px", display: "inline-block" }}>
+                    Talk with Pavan
+                  </span>
+                </button>
+              </Link>
             </div>
           </div>
-        </div>
-      </RoundPort>
-    </>
+        </div>  
+      </>        
   );
 }

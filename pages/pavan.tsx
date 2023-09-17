@@ -39,10 +39,8 @@ export default function Home() {
   useEffect(() => {
     const defaultEntry: ChatMessage = {
       type: "server", // You can set the type as "server" or "user" as needed
-      text: `
-Welcome to Pavan Nallagoni's Resume Chat Zone! 🚀 This is your gateway to uncovering the fascinating details of Pavan's background, achievements, and career journey. Feel free to inquire about anything you'd like to know – whether it's about Pavan's education, career highlights, skills, or ongoing projects.🎓💼
-
-Got questions? Just drop them here, and we'll uncover the fascinating details of Pavan's journey! 🔥📚🏆
+      text: `Welcome to Pavan Nallagoni's Resume Chat Zone! 🚀 Explore Pavan's background, achievements, and career journey. Ask about education 🎓, highlights ⚡️, skills 👨🏻‍💻, or projects 💻. 
+Got questions? Just drop them here 🔥📚🏆
 
 🔍 Need a starting point? How about these:
 
@@ -77,12 +75,10 @@ Feel free to ask away, and let's dive into the captivating story of Pavan Nallag
         body: JSON.stringify({
           query,
           nodesWithEmbedding,
+          context: "pavan",
         }),
       });
-      console.log(
-        "🚀 ~ file: pavan.tsx:80 ~ handleQuerySubmit ~ nodesWithEmbedding:",
-        nodesWithEmbedding,
-      );
+
       if (!result.ok) {
         throw new Error(`HTTP error! Status: ${result.status}`);
       }
