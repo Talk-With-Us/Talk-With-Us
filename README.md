@@ -1,13 +1,12 @@
-# Chat with PDF LlamaIndex 💬
+# Talk With Us 💬
 
 ## Description 📄
 
-This project is a web application that allows users to upload PDF documents, index them using the LlamaIndex library, and query the indexed documents using a chat interface. It's a powerful tool for quickly retrieving information from a collection of PDF documents.
+ "Talk to Us: Your Resume's Voice! Explore our chat-based platform, powered by OpenAI and LlamaIndex. Get real-time responses about any resume. Join the conversation today!"
 
 ## Table of Contents 📋
 
 - [Installation](#installation)
-- [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -18,7 +17,7 @@ To run this project locally, follow these steps:
 1.   Clone the repository:
 
      ```bash
-     git clone https://github.com/samaypusarla/chat-with-PDF.git
+     git clone https://github.com/samaypusarla/Talk-With-Us.git
 
 2.  Navigate to the project directory:
 
@@ -47,17 +46,7 @@ To run this project locally, follow these steps:
 
 This code assumes that you're using PNPM as your package manager; if you're using NPM or Yarn, you can replace `pnpm` with `npm` or `yarn` as needed.
 
-## Usage 🚀
 
-1. 📁 Upload a PDF document by clicking the "Choose File" button.
-
-2. ⏳ Wait for the document to be processed and indexed.
-
-3. 🔍 Enter your query in the "Query" field and click "Submit" to retrieve relevant information from the indexed documents.
-
-4. 💬 The chat history will display your queries and the responses from the indexed documents.
-
-Feel free to explore and interact with the application to efficiently search and retrieve information from your PDF documents.
 
 ## Contributing 🤝
 
