@@ -17,7 +17,7 @@ To run this project locally, follow these steps:
 1.   Clone the repository:
 
      ```bash
-     git clone https://github.com/samaypusarla/Talk-With-Us.git
+     git clone https://github.com/Talk-With-Us/Talk-With-Us
 
 2.  Navigate to the project directory:
 
